@@ -30,7 +30,16 @@ const App = () => {
   const deleteContact = contactId => {
     setConacts(contacts => [...contacts.filter(({ id }) => id !== contactId)]);
   };
-  const listContacts = contacts;
+
+  const getVisibleContacts = () => {
+    const normalizedFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.contactName.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
+  const listContacts = getVisibleContacts() ?? contacts;
+
   return (
     <Container>
       <Section title="Phonebook">
