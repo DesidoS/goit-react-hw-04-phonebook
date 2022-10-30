@@ -33,15 +33,15 @@ const App = () => {
 
   const getVisibleContacts = () => {
     const normalizedFilter = filter.toLowerCase();
-    if (contacts.length < 1) {
-      return;
+    if (contacts.length > 1) {
+      return contacts.filter(contact =>
+        contact.contactName.toLowerCase().includes(normalizedFilter)
+      );
     }
-    return contacts.filter(contact =>
-      contact.contactName.toLowerCase().includes(normalizedFilter)
-    );
+    return;
   };
 
-  const listContacts = getVisibleContacts() ?? contacts;
+  const listContacts = getVisibleContacts() || contacts;
 
   return (
     <Container>
