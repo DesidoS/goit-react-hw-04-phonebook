@@ -22,25 +22,6 @@ const ContactForm = ({ addContact, names }) => {
     const fieldName = e.currentTarget.name;
     const fieldValue = e.currentTarget.value;
 
-    // Вариант SWITCH
-    // switch (fieldName) {
-    //   case 'name':
-    //     setContactName(fieldValue);
-    //     break;
-
-    //   case 'number':
-    //     setNumber(fieldValue);
-    //     break;
-
-    //   case 'type':
-    //     setType(fieldValue);
-    //     break;
-
-    //   default:
-    //     throw new Error('Not supported type');
-    // }
-
-    // Вариант IF
     if (fieldName === 'name') {
       setContactName(fieldValue);
     }
